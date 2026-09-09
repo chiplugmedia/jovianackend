@@ -13,17 +13,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Evermore Network",
-  description: "Evermore Network | AI Training & Rewards Ecosystem",
+  title: "JOVIA",
+  description:
+    "JOVIA is a multinational intelligent networking platform designed to help users earn for the time they spend through networking, digital skills, entertainment, and engaging activities. Users can participate in activities, set countdown timers, and earn rewards for every second spent on the platform.",
+  keywords: [
+    "JOVIA",
+    "networking platform",
+    "earn online",
+    "digital skills",
+    "entertainment",
+    "rewards platform",
+    "countdown earning",
+    "intelligent networking",
+    "online income",
+  ],
+  applicationName: "JOVIA",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+      </body>
     </html>
   );
 }
