@@ -51,7 +51,7 @@ export async function POST(req) {
     // }
 
     // Plan Amount
-    const amount = plan === "Premium" ? 14000 : 7000;
+    const amount = plan === "Gold" ? 15000 : 9000;
 
     const tx_ref = `EVER-${Date.now()}-${Math.floor(Math.random() * 999999)}`;
 

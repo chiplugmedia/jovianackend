@@ -1,41 +1,93 @@
 import Link from "next/link";
+import { Zap, AlertTriangle, AlertCircle } from "lucide-react";
 
 export default function PaymentFailed() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-red-50 px-5">
-      <div className="max-w-lg w-full bg-white p-10 rounded-3xl shadow-xl text-center">
-        <div className="w-24 h-24 mx-auto rounded-full bg-red-100 flex items-center justify-center">
-          <span className="text-red-600 text-5xl">✕</span>
+    <main className="relative min-h-screen bg-[#05010d] text-white flex flex-col justify-center py-20 px-4 sm:px-6">
+      {/* Brand Ambient Background Effects */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute left-1/4 top-10 h-80 w-80 rounded-full bg-red-600/10 blur-[130px]" />
+        <div className="absolute right-1/4 bottom-10 h-96 w-96 rounded-full bg-purple-600/20 blur-[150px]" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-xl text-center">
+        {/* Step Progress Header */}
+        <div className="mb-12">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="flex size-2.5 items-center justify-center rounded-full bg-[#E2C876]"></span>
+            <span className="flex size-2.5 items-center justify-center rounded-full bg-[#E2C876]"></span>
+            <span className="flex size-2.5 items-center justify-center rounded-full bg-red-600/50"></span>
+          </div>
+          <div className="h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+            <div className="h-full rounded-full bg-gradient-to-r from-[#E2C876] via-[#C726D4] to-red-600 w-full transition-all duration-500 ease-out" />
+          </div>
         </div>
 
-        <h1 className="mt-6 text-4xl font-black text-red-600">
-          Payment Failed
-        </h1>
+        {/* Failed Overview */}
+        <div className="mx-auto max-w-md text-center py-4 sm:py-6">
+          <div className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-red-500/20 bg-red-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-red-300">
+            <AlertTriangle className="h-4 w-4 text-red-400" />
+            Payment Status: Unsuccessful
+          </div>
 
-        <p className="mt-4 text-slate-600">
-          Your payment could not be verified.
-        </p>
+          <h1 className="text-4xl font-black text-white sm:text-5xl leading-tight">
+            Transaction{" "}
+            <span className="bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent">
+              Interrupted.
+            </span>
+          </h1>
 
-        <Link
-          href="https://evermorenetwork.com/register"
-          className="
-          mt-8
-          inline-flex
-          items-center
-          justify-center
-          px-8
-          py-4
-          rounded-2xl
-          font-semibold
-          text-white
-          bg-gradient-to-r
-          from-[#0E2258]
-          via-[#15347A]
-          to-[#0F9AC5]
-          "
-        >
-          Try Again
-        </Link>
+          <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-slate-300">
+            We were unable to verify your membership activation payment. Please
+            review the details below.
+          </p>
+
+          <div className="mt-7 space-y-3 rounded-3xl border border-red-500/20 bg-[#0a0518]/90 p-5 text-left sm:p-6 backdrop-blur-xl shadow-2xl">
+            <p className="flex items-start gap-3 text-sm text-slate-200">
+              <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-red-500/20 text-red-400">
+                <AlertCircle className="size-3" />
+              </span>
+              <span>
+                <strong>Verification Failed</strong> — Payment gateway could not
+                confirm funds
+              </span>
+            </p>
+            <p className="flex items-start gap-3 text-sm text-slate-200">
+              <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-red-500/20 text-red-400">
+                <AlertCircle className="size-3" />
+              </span>
+              <span>
+                <strong>Common Issues</strong> — Check card balance or network
+                connectivity
+              </span>
+            </p>
+            <p className="flex items-start gap-3 text-sm text-slate-200">
+              <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-red-500/20 text-red-400">
+                <AlertCircle className="size-3" />
+              </span>
+              <span>
+                <strong>Activation Blocked</strong> — Try standard or boosted
+                tier again
+              </span>
+            </p>
+          </div>
+
+          <Link
+            href="https://jovianetwork.ng/register"
+            className="mt-7 flex h-12 w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[#E2C876] to-[#C726D4] text-base font-bold text-[#05010d] transition-all duration-300 hover:opacity-95 hover:shadow-lg hover:shadow-red-900/30 active:scale-[0.99] sm:h-[3.25rem]"
+          >
+            Try Activation Again
+            <Zap className="h-5 w-5" />
+          </Link>
+
+          <p className="mt-5 font-mono text-xs uppercase tracking-widest text-slate-400">
+            Jovia Network Ecosystem · Secure Verification
+          </p>
+          <p className="mt-2 text-[11px] leading-relaxed text-slate-500">
+            Unverified attempts will be automatically flagged by our secure
+            monitoring partner.
+          </p>
+        </div>
       </div>
     </main>
   );
