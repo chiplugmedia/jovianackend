@@ -5,7 +5,7 @@ export function middleware(request) {
     return new NextResponse(null, {
       status: 200,
       headers: {
-        "Access-Control-Allow-Origin": "https://jovianetwork.ng",
+        "Access-Control-Allow-Origin": "https://api.jovianetwork.ng",
         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization",
       },
@@ -16,7 +16,7 @@ export function middleware(request) {
 
   response.headers.set(
     "Access-Control-Allow-Origin",
-    "https://jovianetwork.ng",
+    "https://api.jovianetwork.ng",
   );
 
   response.headers.set(
